@@ -1,0 +1,16 @@
+Package: islandPLUS 
+Title: This package performs upgma-based, Akaike-based model selection of colonization-
+    extinction community models based on the theory of island biogeography (MacArthur and Wilson, 1967)
+Version: 0.0.0.9000
+Authors@R: person("David", "Alonso", email = "dalonso@ceab.csic.es", role = c("aut", "cre"))
+Description: This package reads data from presence-absence files representing the temporal evolution of 
+    an ecological community. It reads these data into a single data frame that can be then subdivided into 
+    different groups according to one of the factors in the data frame. The package uses a upgma-based clustering 
+    method to classify the groups according to their colonization-extinction parameters. Then, it
+    calculates the best partition for the set of groups according to Akaike Information Criteria.
+Depends:
+    R (>= 3.0.2)
+License: GPL-2 | GPL-3
+NeedsCompilation: yes
+LazyData: true
+RoxygenNote: 6.0.1.9000
