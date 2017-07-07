@@ -1,0 +1,15 @@
+################################################# 
+EXTRA_LIBRARY_PATH=-L./lib/ -L./lib_opt/ -L/usr/lib/ -L/usr/local/lib/
+EXTRA_INCLUDE_PATH=-I./include/ -I./lib/ -I./lib_opt/
+#################################################
+RSH=R_SHLIB
+CPG=NON_CPGPLOT_REPRESENTATION
+#################################################
+## R_SHLIB is a compilation FLAG for the generation of libraries compatible 
+## with the generation of R-callable shared objects:
+#################################################
+PKG_CPPFLAGS=${EXTRA_INCLUDE_PATH}
+PKG_CFLAGS=-D${CPG} -D${RSH}
+PKG_LIBS=${EXTRA_LIBRARY_PATH} -lda_IBT_Optimization -lda_IBT_Functions  $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS) -lgsl -lgslcblas -lm
+################################################# 
+
