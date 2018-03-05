@@ -3,10 +3,13 @@
 SOURCES=MODEL_SELECTION_UPGMA_R_FUNCTION.c MODEL_SELECTION_UPGMA_MacKENZIE_R_FUNCTION.c R_SHLIB___mle_MacKenzie_NLL_Uneven_Minimization.c R_SHLIB___mle_NLLikelihood_Minimization.c R_SHLIB___mle_MacKenzie_NLLikelihood_Minimization.c Counting_Replicates_per_Time.c
 SHLIB=islandPLUS.so
 #
-all:  	IBT_Functions IBT_Optimization 
+all:  	IBT_gsl IBT_Functions IBT_Optimization 
 	echo "Building shared object "${SHLIB}
 	R CMD SHLIB -o ${SHLIB} ${SOURCES} 
 # Auxiliary libraries 
+IBT_gsl: 
+	echo "Compiling Library da_gsl.a needed by shared object "${SHLIB}
+	cd ./lib_gsl; ${MAKE} CC="$(CC)" CFLAGS="$(CFLAGS) $(CPICFLAGS)" AR="$(AR)" RANLIB="$(RANLIB)"
 IBT_Functions: 
 	echo "Compiling Library da_IBT_Functions.a needed by shared object "${SHLIB}
 	cd ./lib; ${MAKE} CC="$(CC)" CFLAGS="$(CFLAGS) $(CPICFLAGS)" AR="$(AR)" RANLIB="$(RANLIB)"
@@ -15,6 +18,6 @@ IBT_Optimization:
 	cd ./lib_opt; ${MAKE} CC="$(CC)" CFLAGS="$(CFLAGS) $(CPICFLAGS)" AR="$(AR)" RANLIB="$(RANLIB)"
 ##################################################################
 clean: 
-	rm *.o; cd ./lib; make clean; cd ../lib_opt; make clean
+	rm *.o; cd ./lib; make clean; cd ../lib_opt; make clean; cd ../lib_gsl; make clean
 #       E N D :  Example to build an R shared library from C code
 ###################################################################
