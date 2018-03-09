@@ -1,0 +1,6 @@
+canonical.c
+file.c
+init.c
+inline.c
+permutation.c
+permute.c

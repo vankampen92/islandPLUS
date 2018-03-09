@@ -1,0 +1,14 @@
+conjugate_fr.c
+conjugate_pr.c
+convergence.c
+diff.c
+directional_minimize.c
+fdfminimizer.c
+fminimizer.c
+linear_minimize.c
+linear_wrapper.c
+simplex2.c
+simplex.c
+steepest_descent.c
+vector_bfgs2.c
+vector_bfgs.c
