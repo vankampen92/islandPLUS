@@ -18,6 +18,6 @@ IBT_Optimization:
 	cd ./lib_opt; ${MAKE} CC="$(CC)" CFLAGS="$(CFLAGS) $(CPICFLAGS)" AR="$(AR)" RANLIB="$(RANLIB)"
 ##################################################################
 clean: 
-	rm *.o; cd ./lib; ${MAKE} clean; cd ../lib_opt; ${MAKE} clean; cd ../lib_gsl; ${MAKE} clean
+	rm *.o; cd ./gsl; rm -r gsl-2.4; cd ./lib; ${MAKE} clean; cd ../lib_opt; ${MAKE} clean; cd ../lib_gsl; ${MAKE} clean
 #       E N D :  Example to build an R shared library from C code
 ###################################################################
