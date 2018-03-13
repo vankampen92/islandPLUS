@@ -1,0 +1,17 @@
+################################################# 
+EXTRA_LIBRARY_PATH=-L./lib/ -L./lib_opt/ -L./lib_gsl/ -L/usr/lib/ -L/usr/local/lib/
+EXTRA_INCLUDE_PATH=-I./include/ -I./include/gsl/ -I./lib/ -I./lib_opt/ -I./lib_gsl/
+#################################################
+RSH=R_SHLIB
+CPG=NON_CPGPLOT_REPRESENTATION
+#################################################
+## R_SHLIB is a compilation FLAG for the generation of libraries compatible 
+## with the generation of R-callable shared objects:
+#################################################
+PKG_CPPFLAGS=${EXTRA_INCLUDE_PATH} -I${LIB_GSL}/include
+PKG_CFLAGS=-D${CPG} -D${RSH}
+PKG_LIBS=${EXTRA_LIBRARY_PATH} -lda_IBT_Optimization -lda_IBT_Functions  $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS) -lda_gsl -lm
+# In case of GSL previous intallation (gsl-dependency), then
+# PKG_LIBS=${EXTRA_LIBRARY_PATH} -lda_IBT_Optimization -lda_IBT_Functions  -L${LIB_GSL}/lib -lgsl -lgslcblas
+################################################# 
+
