@@ -1,10 +1,10 @@
-EXTRA_INCLUDE_PATH = -I./lib/ -I../include/ -I/usr/share/R/include/
+EXTRA_INCLUDE_PATH = -I./lib/ -I../include/ -I/usr/share/R/include/ -I/Library/Frameworks/R.framework/Resources/include/
 
 CFLAGS+=-DHAVE_INLINE # ${EXTRA_INCLUDE_PATH} 
 
 CC=gcc -fPIC -DSHARED_OBJECT
 
-RANLIB=ranlib
+RANLIB=ranlib -arch_only x86_64
 
 OBJECTS=UPGMA_CLUSTERING_PARTITION.o upgma_clustering.o EUCLIDIAN_DISTANCE_MATRIX.o Probability_Rates.o Transition_Matrix.o Rates_into_Probabilities.o IO_Missing_Values.o IO_AKAIKE_Model_Selection.o Counting_Type_of_Transitions.o Create_Binary_Combination.o
 
@@ -15,7 +15,7 @@ OBJECTS=UPGMA_CLUSTERING_PARTITION.o upgma_clustering.o EUCLIDIAN_DISTANCE_MATRI
 	${CC} $(CFLAGS) -DHAVE_INLINE ${EXTRA_INCLUDE_PATH} -c $<
 
 IBT_Functions:	${OBJECTS} HEADERS.h
-	${AR} -q libda_IBT_Functions.a ${OBJECTS}
+	${AR} -o libda_IBT_Functions.a ${OBJECTS}
 	${RANLIB} libda_IBT_Functions.a
 
 clean:  

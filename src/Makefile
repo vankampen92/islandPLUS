@@ -2,6 +2,7 @@
 #       B E G I N :  Build shared library of functions to be callable from R ('isandPLUS.so')
 SOURCES=MODEL_SELECTION_UPGMA_R_FUNCTION.c MODEL_SELECTION_UPGMA_MacKENZIE_R_FUNCTION.c R_SHLIB___mle_MacKenzie_NLL_Uneven_Minimization.c R_SHLIB___mle_NLLikelihood_Minimization.c R_SHLIB___mle_MacKenzie_NLLikelihood_Minimization.c Counting_Replicates_per_Time.c
 SHLIB=islandPLUS.so
+AR=libtool -static -arch_only x86_64 
 #
 all:  	IBT_Functions IBT_Optimization IBT_gsl
 	echo "Building shared object "${SHLIB}
