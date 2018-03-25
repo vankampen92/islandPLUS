@@ -1,6 +1,6 @@
 ################################################# 
-EXTRA_LIBRARY_PATH=-L./lib/ -L./lib_opt/ -L./lib_gsl/ -L/usr/lib/ -L/usr/local/lib/
-EXTRA_INCLUDE_PATH=-I./include/ -I./include/gsl/ -I./lib/ -I./lib_opt/ -I./lib_gsl/
+EXTRA_LIBRARY_PATH=-L./lib/ -L./lib_opt/ -L./lib_gsl/ -L/usr/lib/ -L/usr/local/lib/ -L/Library/Frameworks/R.framework/Resources/lib/
+EXTRA_INCLUDE_PATH=-I./include/ -I./include/gsl/ -I./lib/ -I./lib_opt/ -I./lib_gsl/ -I/Library/Frameworks/R.framework/Resources/include/
 #################################################
 RSH=R_SHLIB
 CPG=NON_CPGPLOT_REPRESENTATION
